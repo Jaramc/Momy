@@ -1,0 +1,285 @@
+@page
+@model IndexModel
+@using Momy.Pages
+@{
+    ViewData["Title"] = "Feliz cumpleaños, mamá";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz cumpleaños, mamá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="~/css/site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-rose-50 to-amber-50 font-sans">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-rose-100/30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="font-serif text-3xl font-bold text-rose-600 hover:text-rose-700 transition-colors" id="navbar-home">
+                    Mamá
+                </a>
+
+                <ul class="hidden md:flex items-center gap-8">
+                    <li><a href="#nuestra-historia" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm">Nuestra historia</a></li>
+                    <li><a href="#galeria" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm">Galería</a></li>
+                    <li><a href="#cualidades" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm">Cualidades</a></li>
+                    <li><a href="#momentos" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm">Momentos</a></li>
+                </ul>
+
+                <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg hover:from-rose-600 hover:to-pink-600 transition-all font-medium text-sm" id="btn-send-love">
+                    Enviar amor
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-20">
+        <!-- Flores decorativas -->
+        <div class="absolute top-10 left-5 opacity-20 text-6xl animate-float">🌸</div>
+        <div class="absolute top-32 right-8 opacity-20 text-5xl animate-float" style="animation-delay: 2s;">🌹</div>
+        <div class="absolute bottom-20 left-10 opacity-15 text-4xl animate-float" style="animation-delay: 4s;">🌷</div>
+
+        <div class="text-center max-w-2xl mx-auto px-4 relative z-10">
+            <div class="text-5xl mb-6 animate-bounce" style="animation-duration: 2s;">💛</div>
+
+            <h1 class="font-serif text-6xl md:text-7xl text-rose-900 mb-6 font-bold leading-tight animate-fadeIn">
+                Feliz cumpleaños,<br> mamá
+            </h1>
+
+            <p class="text-gray-700 text-lg md:text-xl mb-10 leading-relaxed max-w-xl mx-auto font-light">
+                Y feliz Día de las Madres a la mujer más especial de mi vida.
+            </p>
+
+            <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:from-rose-600 hover:to-pink-600 transition-all font-serif text-lg font-semibold" id="btn-message">
+                Ver mi mensaje para ti
+            </button>
+        </div>
+    </section>
+
+    <!-- Tarjeta de Mensaje Emocional -->
+    <section id="mensaje" class="py-20 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-gradient-to-br from-rose-100 via-pink-50 to-amber-50 rounded-3xl p-8 md:p-12 shadow-2xl border border-rose-200/50 relative overflow-hidden group hover:shadow-3xl transition-all duration-300">
+                <!-- Decoraciones en esquinas -->
+                <div class="absolute top-4 right-4 text-4xl opacity-30">🌹</div>
+                <div class="absolute bottom-4 left-4 text-4xl opacity-30">🌸</div>
+
+                <div class="relative z-10">
+                    <h2 class="font-serif text-4xl md:text-5xl text-rose-900 mb-8 text-center font-bold">
+                        Un mensaje para ti
+                    </h2>
+
+                    <div class="space-y-6 text-gray-800 text-lg leading-relaxed font-light">
+                        <p class="italic text-center text-xl text-rose-700 font-serif">
+                            "Mamá, no hay palabras suficientes para agradecerte todo lo que has hecho por mí."
+                        </p>
+
+                        <p>
+                            Tu amor ha sido la brújula que me guía en los momentos oscuros, el refugio seguro donde siempre encuentro paz.
+                            Cada consejo, cada gesto de cuidado, cada sacrificio silencioso ha moldeado quién soy hoy.
+                        </p>
+
+                        <p>
+                            Te admiro por tu fortaleza inquebrantable, por tu capacidad de amar sin límites,
+                            por ser el corazón que nos mantiene unidos como familia. Eres mi inspiración diaria,
+                            mi ejemplo de bondad y dedicación.
+                        </p>
+
+                        <p>
+                            En cada logro que alcancemos, en cada momento de felicidad, en cada sueño cumplido,
+                            estarás ahí porque construiste los cimientos sobre los que hemos crecido.
+                        </p>
+
+                        <p>
+                            Hoy celebramos tu vida, tu esencia, tu luz. Celebramos a la mujer más especial del mundo.
+                        </p>
+
+                        <p class="pt-4 text-center font-serif text-2xl text-rose-800">
+                            Con amor infinito,<br>
+                            <span class="text-lg">Tu hijo/a</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería de Momentos -->
+    <section id="galeria" class="py-20 px-4 bg-white/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-serif text-5xl md:text-6xl text-center text-rose-900 mb-4 font-bold">
+                Momentos que guardo en mi corazón
+            </h2>
+            <p class="text-center text-gray-600 mb-16 text-lg font-light">
+                Recuerdos que vivirán para siempre en mi corazón
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Imagen grande izquierda -->
+                <div class="md:col-span-1 md:row-span-2 group cursor-pointer">
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 h-96 md:h-full">
+                        <img src="@Model.Memories.FirstOrDefault()?.ImageUrl ?? 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=800&fit=crop'"
+                             alt="Momento especial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <h3 class="font-serif text-2xl font-bold">@Model.Memories.FirstOrDefault()?.Title</h3>
+                        </div>
+                        <div class="absolute top-6 right-6 text-3xl opacity-80 group-hover:opacity-100 transition-opacity">💛</div>
+                    </div>
+                </div>
+
+                <!-- Imágenes pequeñas derecha -->
+                @foreach (var memory in Model.Memories.Skip(1).Take(2))
+                {
+                    <div class="group cursor-pointer">
+                        <div class="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-40 md:h-auto">
+                            <img src="@memory.ImageUrl" alt="@memory.Title"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <h3 class="font-serif text-lg font-bold">@memory.Title</h3>
+                            </div>
+                            <div class="absolute top-4 right-4 text-2xl opacity-80 group-hover:opacity-100 transition-opacity">💛</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Emocional -->
+    <section class="relative py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-40"
+             style="background-image: url('https://images.unsplash.com/photo-1490633874519-7b5a9d1f3c00?w=1200&h=300&fit=crop');"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-rose-600/50 to-pink-600/50"></div>
+
+        <div class="relative z-10 text-center py-16">
+            <div class="text-6xl mb-8 animate-pulse">✨</div>
+            <h2 class="font-serif text-6xl md:text-7xl text-white font-bold mb-6">
+                Tu luz ilumina todo
+            </h2>
+            <p class="text-white/90 text-xl max-w-xl mx-auto font-light">
+                Eres la brújula que nos guía, el corazón que nos une, el amor que nos transforma.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección de Cualidades -->
+    <section id="cualidades" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-serif text-5xl md:text-6xl text-center text-rose-900 mb-4 font-bold">
+                Cualidades que admiro en ti
+            </h2>
+            <p class="text-center text-gray-600 mb-16 text-lg font-light">
+                Las razones por las que eres especial
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                @foreach (var quality in Model.Qualities)
+                {
+                    <div class="bg-white rounded-2xl p-8 border-2 border-rose-100 shadow-lg hover:shadow-xl hover:border-rose-300 transition-all duration-300 group">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">@Html.Raw(quality.Icon)</div>
+                        <h3 class="font-serif text-2xl text-rose-900 mb-4 font-bold">@quality.Title</h3>
+                        <p class="text-gray-700 leading-relaxed font-light">@quality.Description</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nuestra Historia -->
+    <section id="nuestra-historia" class="py-20 px-4 bg-gradient-to-b from-rose-50/50 to-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-5xl md:text-6xl text-center text-rose-900 mb-4 font-bold">
+                Nuestra historia
+            </h2>
+            <p class="text-center text-gray-600 mb-16 text-lg font-light">
+                Un viaje de amor a través del tiempo
+            </p>
+
+            <div class="relative">
+                <!-- Línea central -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-rose-300 to-pink-300"></div>
+
+                <!-- Timeline items -->
+                @foreach (var (timeline, index) in Model.TimelineItems.Select((item, idx) => (item, idx)))
+                {
+                    var isEven = index % 2 == 0;
+                    <div class="mb-16 md:mb-24 relative">
+                        <!-- Punto dorado -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-gradient-to-br from-amber-300 to-amber-400 rounded-full border-4 border-white shadow-lg"></div>
+
+                        <!-- Contenedor alternado -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            @if (isEven)
+                            {
+                                <!-- Contenido izquierda en desktop -->
+                                <div class="md:text-right">
+                                    <h3 class="font-serif text-3xl text-rose-900 mb-3 font-bold">@timeline.Title</h3>
+                                    <p class="text-gray-700 leading-relaxed font-light">@timeline.Description</p>
+                                </div>
+                                <div class="md:flex justify-end">
+                                    <div class="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-rose-100">
+                                        <img src="@timeline.ImageUrl" alt="@timeline.Title" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <!-- Contenido derecha en desktop -->
+                                <div class="md:flex justify-start md:order-2">
+                                    <div class="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-rose-100">
+                                        <img src="@timeline.ImageUrl" alt="@timeline.Title" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <div class="md:order-1">
+                                    <h3 class="font-serif text-3xl text-rose-900 mb-3 font-bold">@timeline.Title</h3>
+                                    <p class="text-gray-700 leading-relaxed font-light">@timeline.Description</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Final -->
+    <section id="cierre" class="relative py-20 px-4 overflow-hidden">
+        <!-- Fondo decorativo -->
+        <div class="absolute inset-0 bg-gradient-to-b from-pink-100 to-rose-100">
+            <div class="absolute top-5 right-10 text-5xl opacity-20 animate-float">🌸</div>
+            <div class="absolute bottom-10 left-8 text-5xl opacity-20 animate-float" style="animation-delay: 1s;">🌹</div>
+            <div class="absolute top-1/2 right-1/4 text-4xl opacity-15 animate-float" style="animation-delay: 2s;">🌷</div>
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+            <h2 class="font-serif text-5xl md:text-6xl text-rose-900 mb-6 font-bold">
+                Gracias por ser mi mamá,<br> mi guía y mi mayor bendición.
+            </h2>
+
+            <p class="text-2xl md:text-3xl text-rose-700 mb-12 font-serif font-semibold">
+                Te amo, mamá
+            </p>
+
+            <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:from-rose-600 hover:to-pink-600 transition-all font-serif text-lg font-semibold mb-16" id="btn-back-to-top">
+                Volver al inicio
+            </button>
+
+            <div class="text-center text-gray-700 font-light">
+                <p class="text-lg mb-2">Mamá</p>
+                <p class="text-rose-600 italic font-serif">Con amor, siempre y para siempre.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/js/site.js"></script>
+</body>
+</html>

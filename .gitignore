@@ -1,0 +1,121 @@
+# =========================
+# .NET / ASP.NET Core
+# =========================
+
+bin/
+obj/
+out/
+publish/
+
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+TestResults/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Logs
+*.log
+logs/
+Log/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Build / Runtime
+# =========================
+
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+# Si tienes secretos o cadenas de conexión locales
+secrets.json
+.env
+.env.local
+.env.development
+.env.production
+
+# =========================
+# Node / Tailwind CSS
+# =========================
+
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+vite.config.*.timestamp-*
+vite.config.*.mjs.timestamp-*
+
+# Tailwind generated output, si lo generas automáticamente
+wwwroot/css/output.css
+wwwroot/css/tailwind.css
+
+# =========================
+# Package managers
+# =========================
+
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Si quieres mantener el lock file, elimina las líneas anteriores.
+# En proyectos serios normalmente se recomienda versionar el lock file.
+
+# =========================
+# Static files temporales
+# =========================
+
+wwwroot/uploads/
+wwwroot/temp/
+wwwroot/tmp/
+
+# =========================
+# OS files
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Coverage
+# =========================
+
+coverage/
+*.coverage
+*.coveragexml
+lcov.info
+
+# =========================
+# Database
+# =========================
+
+*.db
+*.sqlite
+*.sqlite3
+*.mdf
+*.ldf
+
+# =========================
+# Docker opcional
+# =========================
+
+docker-compose.override.yml
