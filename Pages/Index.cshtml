@@ -116,18 +116,14 @@
     <!-- Tarjeta de Mensaje Emocional -->
     <section id="mensaje" class="py-20 px-4">
         <div class="max-w-2xl mx-auto">
-            <div class="bg-gradient-to-br from-rose-100 via-pink-50 to-amber-50 rounded-3xl p-8 md:p-12 shadow-2xl border border-rose-200/50 relative overflow-hidden group hover:shadow-3xl transition-all duration-300">
-                <!-- Decoraciones en esquinas -->
-                <div class="absolute top-4 right-4 text-4xl opacity-30">🌹</div>
-                <div class="absolute bottom-4 left-4 text-4xl opacity-30">🌸</div>
-
+            <div class="message-card relative overflow-hidden group hover:shadow-3xl transition-all duration-300">
                 <div class="relative z-10">
-                    <h2 class="font-serif text-4xl md:text-5xl text-rose-900 mb-8 text-center font-bold">
+                    <h2 class="font-serif text-4xl md:text-5xl text-white mb-8 text-center font-bold">
                         Un mensaje para ti
                     </h2>
 
-                    <div class="space-y-6 text-gray-800 text-lg leading-relaxed font-light">
-                        <p class="italic text-center text-xl text-rose-700 font-serif">
+                    <div class="space-y-6 text-white text-lg leading-relaxed font-light">
+                        <p class="italic text-center text-xl font-serif">
                             "Mamá, no hay palabras suficientes para agradecerte todo lo que has hecho por mí."
                         </p>
 
@@ -151,7 +147,7 @@
                             Hoy celebramos tu vida, tu esencia, tu luz. Celebramos a la mujer más especial del mundo.
                         </p>
 
-                        <p class="pt-4 text-center font-serif text-2xl text-rose-800">
+                        <p class="pt-4 text-center font-serif text-2xl">
                             Con amor infinito,<br>
                             <span class="text-lg">Tu hijo/a</span>
                         </p>
@@ -174,15 +170,12 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Imagen grande izquierda -->
                 <div class="md:col-span-1 md:row-span-2 group cursor-pointer" role="button" tabindex="0" aria-label="Abrir galería de fotos">
-                    <div class="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 h-96 md:h-full">
+                    <div class="gallery-item h-96 md:h-full">
                         <img src="@Model.Memories.FirstOrDefault()?.ImageUrl ?? 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=800&fit=crop'"
-                             alt="Momento especial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                             alt="Momento especial" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
                         <div class="absolute bottom-6 left-6 right-6 text-white">
                             <h3 class="font-serif text-2xl font-bold">@Model.Memories.FirstOrDefault()?.Title</h3>
-                        </div>
-                        <div class="absolute top-6 right-6 opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-                            <svg class="w-8 h-8 text-yellow-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
                         </div>
                     </div>
                 </div>
@@ -191,15 +184,12 @@
                 @foreach (var memory in Model.Memories.Skip(1).Take(2))
                 {
                     <div class="group cursor-pointer" role="button" tabindex="0" aria-label="Foto de @memory.Title">
-                        <div class="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-40 md:h-auto">
+                        <div class="gallery-item h-40 md:h-auto">
                             <img src="@memory.ImageUrl" alt="@memory.Title"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                 class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
                             <div class="absolute bottom-4 left-4 right-4 text-white">
                                 <h3 class="font-serif text-lg font-bold">@memory.Title</h3>
-                            </div>
-                            <div class="absolute top-4 right-4 opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-                                <svg class="w-6 h-6 text-yellow-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
                             </div>
                         </div>
                     </div>
@@ -240,30 +230,30 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach (var quality in Model.Qualities)
                 {
-                    <div class="bg-white rounded-2xl p-8 border-2 border-rose-100 shadow-lg hover:shadow-xl hover:border-rose-300 transition-all duration-300 group">
-                        <div class="inline-block mb-4 p-3 bg-rose-100 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <div class="quality-card">
+                        <div class="quality-icon">
                             @switch(quality.Title)
                             {
                                 case "Amorosa":
-                                    <svg class="w-8 h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg class="w-6 h-6 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                                     break;
                                 case "Fuerte":
-                                    <svg class="w-8 h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M13 6v10h7V6h-7zM6 6v10h7V6H6zM3 3h18v4H3V3z"/></svg>
+                                    <svg class="w-6 h-6 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M13 6v10h7V6h-7zM6 6v10h7V6H6zM3 3h18v4H3V3z"/></svg>
                                     break;
                                 case "Dulce":
-                                    <svg class="w-8 h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                                    <svg class="w-6 h-6 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
                                     break;
                                 case "Valiente":
-                                    <svg class="w-8 h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="w-6 h-6 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                     break;
                                 case "Única":
-                                    <svg class="w-8 h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.39 7.36h7.75l-6.27 4.56 2.39 7.37-6.27-4.56-6.27 4.56 2.39-7.37-6.27-4.56h7.75L12 2z"/></svg>
+                                    <svg class="w-6 h-6 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.39 7.36h7.75l-6.27 4.56 2.39 7.37-6.27-4.56-6.27 4.56 2.39-7.37-6.27-4.56h7.75L12 2z"/></svg>
                                     break;
                                 case "Inspiración":
-                                    <svg class="w-8 h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                                    <svg class="w-6 h-6 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
                                     break;
                                 default:
-                                    <svg class="w-8 h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="w-6 h-6 text-rose-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                     break;
                             }
                         </div>

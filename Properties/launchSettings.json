@@ -1,11 +1,10 @@
 {
-  "profiles": {
-    "Momy": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "http://localhost:5001",
-      "applicationUrl": "https://localhost:7001;http://localhost:5001"
-    }
-  }
+"profiles": {
+"Momy": {
+"commandName": "Project",
+"dotnetRunMessages": true,
+"launchBrowser": true,
+"applicationUrl": "https://localhost:7001;http://localhost:5001",
+}
+}
 }
