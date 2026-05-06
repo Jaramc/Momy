@@ -10,6 +10,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una página web elegante y emotiva dedicada a la mamá más especial del mundo. Celebra con mensajes, galerías de recuerdos y una línea de tiempo de nuestros momentos juntos.">
+    <meta name="author" content="Familia">
+    <meta name="keywords" content="cumpleaños, mamá, día de la madre, familia, amor">
+    <meta name="theme-color" content="#E8C5D8">
+
+    <!-- Open Graph para compartir en redes sociales -->
+    <meta property="og:title" content="Feliz cumpleaños, mamá 💕">
+    <meta property="og:description" content="Una página especial dedicada a la mamá más increíble del mundo">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Feliz cumpleaños, mamá 💕">
+    <meta name="twitter:description" content="Una página especial dedicada a mamá">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://example.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>💕</text></svg>">
+
     <title>Feliz cumpleaños, mamá</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="~/css/site.css">
@@ -18,12 +40,19 @@
 <body class="bg-gradient-to-b from-rose-50 to-amber-50 font-sans">
 
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-rose-100/30 shadow-sm">
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-rose-100/30 shadow-sm" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex items-center justify-between">
-                <a href="#" class="font-serif text-3xl font-bold text-rose-600 hover:text-rose-700 transition-colors" id="navbar-home">
+                <a href="#" class="font-serif text-3xl font-bold text-rose-600 hover:text-rose-700 transition-colors" id="navbar-home" aria-label="Ir al inicio">
                     Mamá
                 </a>
+
+                <!-- Hamburger button for mobile -->
+                <button class="md:hidden flex flex-col gap-1.5 p-2 text-gray-700 hover:text-rose-600 transition-colors" id="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                    <span class="w-6 h-0.5 bg-current transition-all"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all"></span>
+                </button>
 
                 <ul class="hidden md:flex items-center gap-8">
                     <li><a href="#nuestra-historia" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm">Nuestra historia</a></li>
@@ -32,7 +61,20 @@
                     <li><a href="#momentos" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm">Momentos</a></li>
                 </ul>
 
-                <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg hover:from-rose-600 hover:to-pink-600 transition-all font-medium text-sm" id="btn-send-love">
+                <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg hover:from-rose-600 hover:to-pink-600 transition-all font-medium text-sm hidden md:block" id="btn-send-love" aria-label="Enviar amor">
+                    Enviar amor
+                </button>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-rose-100/30">
+                <ul class="flex flex-col gap-4">
+                    <li><a href="#nuestra-historia" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm block">Nuestra historia</a></li>
+                    <li><a href="#galeria" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm block">Galería</a></li>
+                    <li><a href="#cualidades" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm block">Cualidades</a></li>
+                    <li><a href="#momentos" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm block">Momentos</a></li>
+                </ul>
+                <button class="w-full bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg hover:from-rose-600 hover:to-pink-600 transition-all font-medium text-sm mt-4" id="btn-send-love-mobile" aria-label="Enviar amor">
                     Enviar amor
                 </button>
             </div>
@@ -40,14 +82,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-20">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-20" aria-label="Sección de bienvenida">
         <!-- Flores decorativas -->
-        <div class="absolute top-10 left-5 opacity-20 text-6xl animate-float">🌸</div>
-        <div class="absolute top-32 right-8 opacity-20 text-5xl animate-float" style="animation-delay: 2s;">🌹</div>
-        <div class="absolute bottom-20 left-10 opacity-15 text-4xl animate-float" style="animation-delay: 4s;">🌷</div>
+        <div class="absolute top-10 left-5 opacity-20 text-6xl animate-float" aria-hidden="true">🌸</div>
+        <div class="absolute top-32 right-8 opacity-20 text-5xl animate-float" style="animation-delay: 2s;" aria-hidden="true">🌹</div>
+        <div class="absolute bottom-20 left-10 opacity-15 text-4xl animate-float" style="animation-delay: 4s;" aria-hidden="true">🌷</div>
 
         <div class="text-center max-w-2xl mx-auto px-4 relative z-10">
-            <div class="text-5xl mb-6 animate-bounce" style="animation-duration: 2s;">💛</div>
+            <div class="text-5xl mb-6 animate-bounce" style="animation-duration: 2s;" aria-hidden="true">💛</div>
 
             <h1 class="font-serif text-6xl md:text-7xl text-rose-900 mb-6 font-bold leading-tight animate-fadeIn">
                 Feliz cumpleaños,<br> mamá
@@ -57,7 +99,7 @@
                 Y feliz Día de las Madres a la mujer más especial de mi vida.
             </p>
 
-            <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:from-rose-600 hover:to-pink-600 transition-all font-serif text-lg font-semibold" id="btn-message">
+            <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:from-rose-600 hover:to-pink-600 transition-all font-serif text-lg font-semibold" id="btn-message" aria-label="Ver mensaje para mamá">
                 Ver mi mensaje para ti
             </button>
         </div>
@@ -112,7 +154,7 @@
     </section>
 
     <!-- Sección Galería de Momentos -->
-    <section id="galeria" class="py-20 px-4 bg-white/50">
+    <section id="galeria" class="py-20 px-4 bg-white/50" aria-label="Galería de momentos">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-serif text-5xl md:text-6xl text-center text-rose-900 mb-4 font-bold">
                 Momentos que guardo en mi corazón
@@ -123,7 +165,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Imagen grande izquierda -->
-                <div class="md:col-span-1 md:row-span-2 group cursor-pointer">
+                <div class="md:col-span-1 md:row-span-2 group cursor-pointer" role="button" tabindex="0" aria-label="Abrir galería de fotos">
                     <div class="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 h-96 md:h-full">
                         <img src="@Model.Memories.FirstOrDefault()?.ImageUrl ?? 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=800&fit=crop'"
                              alt="Momento especial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -131,14 +173,14 @@
                         <div class="absolute bottom-6 left-6 right-6 text-white">
                             <h3 class="font-serif text-2xl font-bold">@Model.Memories.FirstOrDefault()?.Title</h3>
                         </div>
-                        <div class="absolute top-6 right-6 text-3xl opacity-80 group-hover:opacity-100 transition-opacity">💛</div>
+                        <div class="absolute top-6 right-6 text-3xl opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true">💛</div>
                     </div>
                 </div>
 
                 <!-- Imágenes pequeñas derecha -->
                 @foreach (var memory in Model.Memories.Skip(1).Take(2))
                 {
-                    <div class="group cursor-pointer">
+                    <div class="group cursor-pointer" role="button" tabindex="0" aria-label="Foto de @memory.Title">
                         <div class="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-40 md:h-auto">
                             <img src="@memory.ImageUrl" alt="@memory.Title"
                                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -146,7 +188,7 @@
                             <div class="absolute bottom-4 left-4 right-4 text-white">
                                 <h3 class="font-serif text-lg font-bold">@memory.Title</h3>
                             </div>
-                            <div class="absolute top-4 right-4 text-2xl opacity-80 group-hover:opacity-100 transition-opacity">💛</div>
+                            <div class="absolute top-4 right-4 text-2xl opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true">💛</div>
                         </div>
                     </div>
                 }
@@ -172,7 +214,7 @@
     </section>
 
     <!-- Sección de Cualidades -->
-    <section id="cualidades" class="py-20 px-4">
+    <section id="cualidades" class="py-20 px-4" aria-label="Cualidades admirables">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-serif text-5xl md:text-6xl text-center text-rose-900 mb-4 font-bold">
                 Cualidades que admiro en ti
@@ -185,7 +227,7 @@
                 @foreach (var quality in Model.Qualities)
                 {
                     <div class="bg-white rounded-2xl p-8 border-2 border-rose-100 shadow-lg hover:shadow-xl hover:border-rose-300 transition-all duration-300 group">
-                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">@Html.Raw(quality.Icon)</div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">@Html.Raw(quality.Icon)</div>
                         <h3 class="font-serif text-2xl text-rose-900 mb-4 font-bold">@quality.Title</h3>
                         <p class="text-gray-700 leading-relaxed font-light">@quality.Description</p>
                     </div>
@@ -252,12 +294,12 @@
     </section>
 
     <!-- Sección Final -->
-    <section id="cierre" class="relative py-20 px-4 overflow-hidden">
+    <section id="cierre" class="relative py-20 px-4 overflow-hidden" aria-label="Mensaje de cierre">
         <!-- Fondo decorativo -->
         <div class="absolute inset-0 bg-gradient-to-b from-pink-100 to-rose-100">
-            <div class="absolute top-5 right-10 text-5xl opacity-20 animate-float">🌸</div>
-            <div class="absolute bottom-10 left-8 text-5xl opacity-20 animate-float" style="animation-delay: 1s;">🌹</div>
-            <div class="absolute top-1/2 right-1/4 text-4xl opacity-15 animate-float" style="animation-delay: 2s;">🌷</div>
+            <div class="absolute top-5 right-10 text-5xl opacity-20 animate-float" aria-hidden="true">🌸</div>
+            <div class="absolute bottom-10 left-8 text-5xl opacity-20 animate-float" style="animation-delay: 1s;" aria-hidden="true">🌹</div>
+            <div class="absolute top-1/2 right-1/4 text-4xl opacity-15 animate-float" style="animation-delay: 2s;" aria-hidden="true">🌷</div>
         </div>
 
         <div class="relative z-10 max-w-3xl mx-auto text-center">
@@ -269,9 +311,14 @@
                 Te amo, mamá
             </p>
 
-            <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:from-rose-600 hover:to-pink-600 transition-all font-serif text-lg font-semibold mb-16" id="btn-back-to-top">
-                Volver al inicio
-            </button>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <button class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:from-rose-600 hover:to-pink-600 transition-all font-serif text-lg font-semibold" id="btn-back-to-top" aria-label="Volver al inicio">
+                    Volver al inicio
+                </button>
+                <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:from-amber-600 hover:to-orange-600 transition-all font-serif text-lg font-semibold" id="btn-download-pdf" aria-label="Descargar como PDF">
+                    📥 Descargar PDF
+                </button>
+            </div>
 
             <div class="text-center text-gray-700 font-light">
                 <p class="text-lg mb-2">Mamá</p>
@@ -281,5 +328,32 @@
     </section>
 
     <script src="~/js/site.js"></script>
+
+    <!-- Galería Modal -->
+    <div id="image-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" role="dialog" aria-labelledby="modal-title">
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col" onclick="event.stopPropagation()">
+            <!-- Botón cerrar -->
+            <button id="modal-close" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10 bg-white/80 rounded-full p-2 hover:bg-white transition-all" aria-label="Cerrar galería">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Imagen -->
+            <img id="modal-image" src="" alt="" class="w-full h-auto object-cover">
+
+            <!-- Info -->
+            <div class="p-6 bg-gradient-to-b from-transparent to-rose-50">
+                <h3 id="modal-title" class="font-serif text-2xl text-rose-900 mb-2 font-bold"></h3>
+                <p id="modal-description" class="text-gray-700 leading-relaxed font-light"></p>
+            </div>
+
+            <!-- Navegación -->
+            <div class="flex gap-4 px-6 pb-6">
+                <button id="modal-prev" class="flex-1 bg-rose-500 text-white px-4 py-2 rounded-full hover:bg-rose-600 transition-all" aria-label="Imagen anterior">← Anterior</button>
+                <button id="modal-next" class="flex-1 bg-rose-500 text-white px-4 py-2 rounded-full hover:bg-rose-600 transition-all" aria-label="Siguiente imagen">Siguiente →</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

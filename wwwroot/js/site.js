@@ -1,3 +1,22 @@
+// Mobile menu toggle
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
+    });
+
+    // Close mobile menu when clicking on a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+
 // Smooth scrolling para los enlaces del navbar
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -16,7 +35,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Botón "Volver al inicio"
-document.getElementById('btn-back-to-top').addEventListener('click', () => {
+document.getElementById('btn-back-to-top')?.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -24,13 +43,21 @@ document.getElementById('btn-back-to-top').addEventListener('click', () => {
 });
 
 // Botón "Enviar amor" - Easter egg
-document.getElementById('btn-send-love').addEventListener('click', () => {
-    createHeartAnimation();
-    showNotification('¡Tu amor ha sido enviado con éxito! 💕');
-});
+const setupLoveButton = (buttonId) => {
+    const button = document.getElementById(buttonId);
+    if (button) {
+        button.addEventListener('click', () => {
+            createHeartAnimation();
+            showNotification('¡Tu amor ha sido enviado con éxito! 💕');
+        });
+    }
+};
+
+setupLoveButton('btn-send-love');
+setupLoveButton('btn-send-love-mobile');
 
 // Botón "Ver mi mensaje para ti"
-document.getElementById('btn-message').addEventListener('click', () => {
+document.getElementById('btn-message')?.addEventListener('click', () => {
     const mensajeSection = document.getElementById('mensaje');
     if (mensajeSection) {
         mensajeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -38,12 +65,18 @@ document.getElementById('btn-message').addEventListener('click', () => {
 });
 
 // Navbar home button
-document.getElementById('navbar-home').addEventListener('click', (e) => {
+document.getElementById('navbar-home')?.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
+});
+
+// Descargar como PDF
+document.getElementById('btn-download-pdf')?.addEventListener('click', () => {
+    window.print();
+    showNotification('Usa "Guardar como PDF" en tu navegador 📄');
 });
 
 // Animación de corazones flotantes
@@ -123,21 +156,10 @@ document.querySelectorAll('section').forEach((section, index) => {
     }
 });
 
-// Efecto hover en las tarjetas de cualidades
-document.querySelectorAll('.card-hover').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-8px)';
-    });
-
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
-
 // Active link indicator en navbar
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]:not([id])');
 
     let current = '';
     sections.forEach(section => {
@@ -155,7 +177,9 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Animación de pétalos (opcional)
+// Animación de pétalos (optimizada)
+let petalInterval;
+
 function createPetal() {
     const petal = document.createElement('div');
     petal.textContent = '🌸';
@@ -173,8 +197,13 @@ function createPetal() {
     setTimeout(() => petal.remove(), 4000);
 }
 
-// Crear pétalos ocasionalmente
-setInterval(createPetal, 2000);
+// Iniciar pétalos (intervalo optimizado)
+petalInterval = setInterval(createPetal, 3000);
+
+// Detener pétalos en modo reduce-motion
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    clearInterval(petalInterval);
+}
 
 // Agregar estilos para animaciones
 const style = document.createElement('style');
@@ -225,7 +254,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Permitir doble clic en los botones principales para confirmar
+// Doble clic en botones para heart burst
 let lastClickTime = 0;
 const primaryButtons = document.querySelectorAll('button[id^="btn-"]');
 
@@ -239,25 +268,7 @@ primaryButtons.forEach(button => {
     });
 });
 
-// Mobile menu toggle (si es necesario agregar más tarde)
-function handleMobileMenu() {
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        if (link.getAttribute('href')?.startsWith('#')) {
-            link.addEventListener('click', () => {
-                // Cerrar menú si existe
-                const mobileMenu = document.querySelector('[data-mobile-menu]');
-                if (mobileMenu) {
-                    mobileMenu.classList.remove('active');
-                }
-            });
-        }
-    });
-}
-
-handleMobileMenu();
-
-// Lazy loading para imágenes (si es necesario)
+// Lazy loading para imágenes
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -274,11 +285,79 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// Función para imprimir la página (permite guardar como PDF)
-function printPage() {
-    window.print();
-}
-
 // Log de inicialización
 console.log('%c💕 Página de Mamá Cargada! 💕', 'color: #E8C5D8; font-size: 16px; font-weight: bold;');
 console.log('Gracias por visitar esta página especial dedicada a alguien muy importante.');
+
+// Galería Modal
+const imageModal = document.getElementById('image-modal');
+const modalImage = document.getElementById('modal-image');
+const modalTitle = document.getElementById('modal-title');
+const modalDescription = document.getElementById('modal-description');
+const modalPrev = document.getElementById('modal-prev');
+const modalNext = document.getElementById('modal-next');
+const modalClose = document.getElementById('modal-close');
+
+let currentImageIndex = 0;
+const galleryImages = [];
+
+// Colectar imágenes de la galería
+document.querySelectorAll('#galeria img').forEach((img, index) => {
+    galleryImages.push({
+        src: img.src,
+        alt: img.alt,
+        title: img.parentElement.querySelector('h3')?.textContent || 'Foto',
+        description: img.parentElement.querySelector('h3')?.textContent || 'Un momento especial'
+    });
+
+    img.parentElement.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentImageIndex = index;
+        openImageModal();
+    });
+});
+
+function openImageModal() {
+    if (galleryImages.length === 0) return;
+
+    const image = galleryImages[currentImageIndex];
+    modalImage.src = image.src;
+    modalImage.alt = image.alt;
+    modalTitle.textContent = image.title;
+    modalDescription.textContent = image.description;
+    imageModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    imageModal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    openImageModal();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    openImageModal();
+}
+
+// Event listeners del modal
+if (modalClose) modalClose.addEventListener('click', closeImageModal);
+if (modalNext) modalNext.addEventListener('click', nextImage);
+if (modalPrev) modalPrev.addEventListener('click', prevImage);
+if (imageModal) {
+    imageModal.addEventListener('click', closeImageModal);
+}
+
+// Teclas del teclado para navegar
+document.addEventListener('keydown', (e) => {
+    if (imageModal.classList.contains('hidden')) return;
+
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'Escape') closeImageModal();
+});
+

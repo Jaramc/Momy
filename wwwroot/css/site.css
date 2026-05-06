@@ -235,27 +235,92 @@ nav {
     gap: 2rem;
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
+/* Modal styles */
+#image-modal {
+    animation: fadeIn 0.2s ease-out;
+}
+
+#image-modal.hidden {
+    display: none;
+}
+
+#image-modal img {
+    max-height: calc(90vh - 200px);
+}
+
+/* Hacer clickeable las imágenes de galería */
+#galeria [role="button"] {
+    cursor: pointer;
+}
+
+#galeria [role="button"]:focus {
+    outline: 3px solid #E8C5D8;
+    outline-offset: 2px;
+}
+
+/* Mobile menu styles */
+#mobile-menu {
+    max-height: 300px;
+    overflow-y: auto;
+    animation: slideDown 0.3s ease-out;
+}
+
+#mobile-menu.hidden {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+#mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+}
+
+/* Mobile optimizations mejoradas */
+@media (max-width: 640px) {
+    #btn-send-love-mobile {
+        width: 100%;
     }
 
-    nav {
-        padding: 1rem 0;
+    .hero-title {
+        font-size: 2rem;
     }
 
     button {
         padding: 0.75rem 1.5rem;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.875rem;
     }
 
     p {
         font-size: 0.95rem;
+    }
+
+    section {
+        padding: 1rem;
     }
 }
 
