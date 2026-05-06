@@ -36,12 +36,29 @@ body::before {
     right: 0;
     bottom: 0;
     background-image:
-        radial-gradient(circle at 20% 50%, rgba(248, 212, 212, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(232, 197, 216, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(212, 175, 143, 0.05) 0%, transparent 50%);
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g opacity="0.08"><path d="M50 10 Q 60 20, 55 35 Q 65 30, 70 40 Q 60 45, 65 55 Q 50 50, 45 60 Q 45 45, 35 50 Q 40 40, 30 35 Q 45 30, 50 20 Z" fill="%23C75B7A" stroke="%23A84860" stroke-width="0.5"/><circle cx="50" cy="40" r="3" fill="%23D4AF8F"/></g></svg>'),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g opacity="0.08"><ellipse cx="50" cy="50" rx="15" ry="18" fill="none" stroke="%23A84860" stroke-width="1"/><ellipse cx="40" cy="40" rx="8" ry="10" fill="%23F8D4D4" opacity="0.5"/><ellipse cx="60" cy="40" rx="8" ry="10" fill="%23F8D4D4" opacity="0.5"/><ellipse cx="50" cy="60" rx="8" ry="10" fill="%23E8C5D8" opacity="0.5"/><circle cx="50" cy="50" r="4" fill="%23D4AF8F"/></g></svg>');
+    background-size: 300px 300px, 250px 250px;
+    background-position: 0 0, 50px 50px;
+    background-repeat: repeat;
     pointer-events: none;
     z-index: 1;
 }
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><style>.rose{opacity:0.12;}</style></defs><g class="rose"><path d="M100 20 Q110 30, 105 45 Q120 40, 130 55 Q115 60, 125 75 Q100 70, 90 85 Q90 60, 75 65 Q85 50, 70 40 Q90 35, 100 25 Z" fill="%23C75B7A" stroke="%23A84860" stroke-width="1"/><circle cx="100" cy="55" r="5" fill="%23D4AF8F"/></g></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
 
 /* Tipografía */
 h1, h2, h3, h4, h5, h6 {
@@ -379,6 +396,63 @@ nav {
 section {
     position: relative;
     z-index: 2;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><style>.lotus{opacity:0.08;}</style></defs><g class="lotus"><circle cx="100" cy="100" r="30" fill="none" stroke="%23E8C5D8" stroke-width="2"/><ellipse cx="80" cy="80" rx="12" ry="18" fill="%23F8D4D4"/><ellipse cx="120" cy="80" rx="12" ry="18" fill="%23F8D4D4"/><ellipse cx="70" cy="110" rx="12" ry="18" fill="%23E8C5D8"/><ellipse cx="130" cy="110" rx="12" ry="18" fill="%23E8C5D8"/><ellipse cx="100" cy="130" rx="12" ry="18" fill="%23D4AF8F"/><circle cx="100" cy="100" r="8" fill="%23D4AF8F"/></g></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 0;
+}
+
+section:nth-child(odd)::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 250px;
+    height: 250px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><style>.rose{opacity:0.08;}</style></defs><g class="rose"><path d="M100 30 Q115 45, 110 65 Q130 55, 145 75 Q125 85, 135 105 Q100 95, 85 115 Q85 85, 65 90 Q80 70, 60 55 Q85 45, 100 35 Z" fill="%23C75B7A" stroke="%238B4A6D" stroke-width="1"/><ellipse cx="100" cy="70" rx="8" ry="6" fill="%23F8D4D4" opacity="0.6"/><circle cx="100" cy="75" r="6" fill="%23D4AF8F"/></g></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Decoraciones en esquinas del documento */
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><style>.lotus{opacity:0.1;}</style></defs><g class="lotus"><circle cx="100" cy="100" r="35" fill="none" stroke="%23E8C5D8" stroke-width="2"/><ellipse cx="75" cy="75" rx="14" ry="20" fill="%23F8D4D4"/><ellipse cx="125" cy="75" rx="14" ry="20" fill="%23F8D4D4"/><ellipse cx="65" cy="110" rx="14" ry="20" fill="%23E8C5D8"/><ellipse cx="135" cy="110" rx="14" ry="20" fill="%23E8C5D8"/><ellipse cx="100" cy="135" rx="14" ry="20" fill="%23D4AF8F"/><circle cx="100" cy="100" r="10" fill="%23D4AF8F"/></g></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 0;
+}
+
+html::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><style>.rose{opacity:0.1;}</style></defs><g class="rose"><path d="M100 20 Q120 40, 115 65 Q140 50, 160 75 Q135 90, 150 120 Q100 105, 80 135 Q80 100, 55 105 Q75 75, 50 50 Q80 40, 100 25 Z" fill="%23C75B7A" stroke="%238B4A6D" stroke-width="1.5"/><ellipse cx="100" cy="65" rx="10" ry="8" fill="%23F8D4D4" opacity="0.7"/><circle cx="100" cy="72" r="7" fill="%23D4AF8F"/></g></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Mobile optimizations mejoradas */
