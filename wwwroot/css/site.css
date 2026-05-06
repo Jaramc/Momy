@@ -262,6 +262,21 @@ nav {
     pointer-events: none;
 }
 
+.message-card::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(212, 175, 143, 0.3);
+    border-radius: 0 0 20px 0;
+}
+
+.message-card {
+    box-shadow: 0 8px 32px rgba(139, 74, 109, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
 /* Galería de imágenes con corazones */
 .gallery-item {
     position: relative;
@@ -276,32 +291,42 @@ nav {
     box-shadow: 0 15px 40px rgba(139, 74, 109, 0.25);
 }
 
-.gallery-item::after {
-    content: '♥';
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 28px;
-    color: #E8C5D8;
-    opacity: 0.8;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+.heart-icon {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover .heart-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.3));
 }
 
 /* Sección de cualidades con íconos */
 .quality-card {
     background: #FFFBF7;
-    border: 2px solid #F8D4D4;
+    border: 2px solid #E8C5D8;
     border-radius: 16px;
     padding: 2rem;
     transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
+}
+
+.quality-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #D4AF8F, transparent);
 }
 
 .quality-card:hover {
     border-color: #D4AF8F;
     transform: translateY(-8px);
     box-shadow: 0 12px 30px rgba(139, 74, 109, 0.1);
+    background: linear-gradient(135deg, #FFFBF7 0%, rgba(248, 212, 212, 0.3) 100%);
 }
 
 .quality-icon {

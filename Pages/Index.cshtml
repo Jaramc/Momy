@@ -96,10 +96,10 @@
 
         <div class="text-center max-w-2xl mx-auto px-4 relative z-10">
             <div class="inline-block mb-6 animate-bounce" style="animation-duration: 2s;">
-                <svg class="w-16 h-16 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                <svg class="w-20 h-20 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
 
-            <h1 class="font-serif text-6xl md:text-7xl text-rose-900 mb-6 font-bold leading-tight animate-fadeIn">
+            <h1 class="font-serif text-6xl md:text-7xl text-rose-900 mb-6 font-bold leading-tight animate-fadeIn italic">
                 Feliz cumpleaños,<br> mamá
             </h1>
 
@@ -117,8 +117,13 @@
     <section id="mensaje" class="py-20 px-4">
         <div class="max-w-2xl mx-auto">
             <div class="message-card relative overflow-hidden group hover:shadow-3xl transition-all duration-300">
+                <!-- Decoración con corazón dorado -->
+                <div class="absolute top-6 left-1/2 transform -translate-x-1/2 z-20">
+                    <svg class="w-8 h-8 text-amber-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+
                 <div class="relative z-10">
-                    <h2 class="font-serif text-4xl md:text-5xl text-white mb-8 text-center font-bold">
+                    <h2 class="font-serif text-4xl md:text-5xl text-white mb-8 text-center font-bold pt-6">
                         Un mensaje para ti
                     </h2>
 
@@ -170,10 +175,11 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Imagen grande izquierda -->
                 <div class="md:row-span-2 group cursor-pointer" role="button" tabindex="0" aria-label="Abrir galería de fotos">
-                    <div class="gallery-item h-96 md:h-full">
+                    <div class="gallery-item h-96 md:h-full relative">
                         <img src="@Model.Memories.FirstOrDefault()?.ImageUrl ?? 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=800&fit=crop'"
                              alt="Momento especial" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
+                        <svg class="heart-icon absolute top-4 right-4 w-8 h-8 text-rose-300/80" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                 </div>
 
@@ -181,9 +187,10 @@
                 @foreach (var memory in Model.Memories.Skip(1).Take(2))
                 {
                     <div class="group cursor-pointer" role="button" tabindex="0" aria-label="Foto de @memory.Title">
-                        <div class="gallery-item h-48 md:h-full">
+                        <div class="gallery-item h-48 md:h-full relative">
                             <img src="@memory.ImageUrl" alt="@memory.Title" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
+                            <svg class="heart-icon absolute top-4 right-4 w-7 h-7 text-rose-300/80" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                         </div>
                     </div>
                 }
@@ -194,7 +201,8 @@
                         <img src="https://images.unsplash.com/photo-1490633874519-7b5a9d1f3c00?w=1200&h=300&fit=crop"
                              alt="Tu luz ilumina todo" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-r from-rose-600/50 to-pink-600/50"></div>
-                        <h3 class="font-serif text-3xl text-white font-bold text-center relative z-10">Tu luz ilumina todo</h3>
+                        <svg class="heart-icon absolute top-4 right-4 w-7 h-7 text-rose-300/80" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <h3 class="font-serif text-3xl text-white font-bold text-center relative z-10 italic">Tu luz ilumina todo</h3>
                     </div>
                 </div>
             </div>
@@ -209,9 +217,9 @@
 
         <div class="relative z-10 text-center py-16">
             <div class="inline-block mb-8 animate-pulse">
-                <svg class="w-16 h-16 text-yellow-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-16 h-16 text-amber-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <h2 class="font-serif text-6xl md:text-7xl text-white font-bold mb-6">
+            <h2 class="font-serif text-6xl md:text-7xl text-white font-bold mb-6 italic">
                 Tu luz ilumina todo
             </h2>
             <p class="text-white/90 text-xl max-w-xl mx-auto font-light">
