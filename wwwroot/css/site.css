@@ -751,3 +751,15 @@ pre {
     padding: 1rem;
     overflow-x: auto;
 }
+
+.secret-footer {
+    background: transparent;
+}
+
+.secret-footer p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgba(139, 74, 109, 0.24);
+    letter-spacing: 0;
+    user-select: none;
+}
