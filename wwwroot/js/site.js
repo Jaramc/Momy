@@ -109,6 +109,7 @@ const setupLoveButton = (buttonId) => {
 
 setupLoveButton('btn-send-love');
 setupLoveButton('btn-send-love-mobile');
+setupLoveButton('btn-send-love-hero-mobile');
 
 // Botón "Ver mi mensaje para ti"
 document.getElementById('btn-message')?.addEventListener('click', () => {
@@ -321,27 +322,6 @@ primaryButtons.forEach(button => {
         lastClickTime = currentTime;
     });
 });
-
-// Lazy loading para imágenes
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src || img.src;
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
-
-// Log de inicialización
-console.log('%c💕 Página de Mamá Cargada! 💕', 'color: #E8C5D8; font-size: 16px; font-weight: bold;');
-console.log('Gracias por visitar esta página especial dedicada a alguien muy importante.');
 
 // Galería Modal
 const imageModal = document.getElementById('image-modal');
