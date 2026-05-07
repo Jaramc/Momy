@@ -1,4 +1,58 @@
 // Mobile menu toggle
+const backgroundAudio = document.getElementById('background-audio');
+const audioMuteToggle = document.getElementById('audio-mute-toggle');
+const audioIconOn = document.getElementById('audio-icon-on');
+const audioIconOff = document.getElementById('audio-icon-off');
+
+function updateAudioButtonState() {
+    if (!backgroundAudio || !audioMuteToggle || !audioIconOn || !audioIconOff) {
+        return;
+    }
+
+    const isMuted = backgroundAudio.muted;
+    audioMuteToggle.setAttribute('aria-pressed', isMuted ? 'true' : 'false');
+    audioMuteToggle.setAttribute('aria-label', isMuted ? 'Activar música' : 'Silenciar música');
+    audioIconOn.classList.toggle('hidden', isMuted);
+    audioIconOff.classList.toggle('hidden', !isMuted);
+}
+
+function tryStartBackgroundAudio() {
+    if (!backgroundAudio) {
+        return;
+    }
+
+    backgroundAudio.play().catch(() => {
+        const resumeAudio = () => {
+            backgroundAudio.play().catch(() => {});
+            document.removeEventListener('click', resumeAudio);
+            document.removeEventListener('touchstart', resumeAudio);
+            document.removeEventListener('keydown', resumeAudio);
+        };
+
+        document.addEventListener('click', resumeAudio, { once: true });
+        document.addEventListener('touchstart', resumeAudio, { once: true });
+        document.addEventListener('keydown', resumeAudio, { once: true });
+    });
+}
+
+if (backgroundAudio) {
+    backgroundAudio.volume = 0.45;
+    backgroundAudio.muted = false;
+    updateAudioButtonState();
+    tryStartBackgroundAudio();
+}
+
+if (audioMuteToggle && backgroundAudio) {
+    audioMuteToggle.addEventListener('click', () => {
+        backgroundAudio.muted = !backgroundAudio.muted;
+        updateAudioButtonState();
+
+        if (!backgroundAudio.muted) {
+            tryStartBackgroundAudio();
+        }
+    });
+}
+
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 

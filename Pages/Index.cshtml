@@ -38,6 +38,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-b from-rose-50 to-amber-50 font-sans">
+    <audio id="background-audio" autoplay loop preload="auto">
+        <source src="/audio/Moon%20Love.mp3" type="audio/mpeg">
+    </audio>
+
+    <button
+        id="audio-mute-toggle"
+        type="button"
+        class="audio-toggle fixed bottom-6 right-6 z-[1000] inline-flex h-14 w-14 items-center justify-center rounded-full border border-rose-200/70 bg-white/90 text-rose-700 shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white"
+        aria-label="Silenciar música"
+        aria-pressed="false">
+        <svg id="audio-icon-on" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.5 8.5a5 5 0 0 1 0 7"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 5.5a9 9 0 0 1 0 13"/>
+        </svg>
+        <svg id="audio-icon-off" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="m16 9 5 5"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 9-5 5"/>
+        </svg>
+    </button>
 
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-rose-100/30 shadow-sm" id="navbar">
@@ -68,7 +89,6 @@
             <!-- Mobile menu -->
             <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-rose-100/30">
                 <ul class="flex flex-col gap-4">
-                    <li><a href="#nuestra-historia" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm block">Nuestra historia</a></li>
                     <li><a href="#galeria" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm block">Galería</a></li>
                     <li><a href="#cualidades" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm block">Cualidades</a></li>
                     <li><a href="#momentos" class="text-gray-700 hover:text-rose-600 transition-colors font-medium text-sm block">Momentos</a></li>
@@ -269,48 +289,12 @@
 
                     <p class="pt-6 text-center font-serif text-3xl drop-shadow-md">
                         Con amor infinito,<br>
-                        <span class="text-xl font-light">Tu hija 💌</span>
+                        <span class="text-xl font-light">Tu hija Ximena 💌</span>
                     </p>
-
-                <div class="relative z-10">
-                    <h2 class="font-serif text-5xl md:text-6xl text-white mb-10 text-center font-bold pt-8 drop-shadow-md">
-                        Un mensaje para ti
-                    </h2>
-
-                    <div class="space-y-7 text-white text-lg leading-relaxed font-light">
-                        <p class="italic text-center text-2xl font-serif mb-8 drop-shadow-md">
-                            "Mamá, no hay palabras suficientes para agradecerte todo lo que has hecho por mí."
-                        </p>
-
-                        <p class="drop-shadow-sm">
-                            Tu amor ha sido la brújula que me guía en los momentos oscuros, el refugio seguro donde siempre encuentro paz.
-                            Cada consejo, cada gesto de cuidado, cada sacrificio silencioso ha moldeado quién soy hoy.
-                        </p>
-
-                        <p class="drop-shadow-sm">
-                            Te admiro por tu fortaleza inquebrantable, por tu capacidad de amar sin límites,
-                            por ser el corazón que nos mantiene unidos como familia. Eres mi inspiración diaria,
-                            mi ejemplo de bondad y dedicación.
-                        </p>
-
-                        <p class="drop-shadow-sm">
-                            En cada logro que alcancemos, en cada momento de felicidad, en cada sueño cumplido,
-                            estarás ahí porque construiste los cimientos sobre los que hemos crecido.
-                        </p>
-
-                        <p class="drop-shadow-sm">
-                            Hoy celebramos tu vida, tu esencia, tu luz. Celebramos a la mujer más especial del mundo.
-                        </p>
-
-                        <p class="pt-6 text-center font-serif text-3xl drop-shadow-md">
-                            Con amor infinito,<br>
-                            <span class="text-xl font-light">Tu hija Ximena</span>
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 </section>
 
     <!-- Sección Galería de Momentos -->
@@ -431,7 +415,7 @@
 
             <div class="space-y-8 text-gray-700 text-lg leading-relaxed">
                 <div class="w-full mb-6">
-                    <img src="/Imagenes/WhatsApp%20Image%202026-05-06%20at%203.31.40%20PM.jpeg" alt="Momento recolectando café" class="w-full rounded-3xl shadow-xl object-cover">
+                    <img src="/Images/madre.jpeg" alt="Momento recolectando café" class="w-full rounded-3xl shadow-xl object-cover">
                 </div>
 
                 <div class="bg-gradient-to-r from-white via-rose-50/50 to-white rounded-3xl p-8 shadow-lg border border-rose-100/50">

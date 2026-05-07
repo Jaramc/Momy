@@ -363,6 +363,20 @@ nav a:hover::after {
     transform: scale(1.08);
 }
 
+.gallery-item img.gallery-image-wide {
+    transform: scale(0.9);
+    transform-origin: center;
+}
+
+.gallery-item:hover img.gallery-image-wide {
+    transform: scale(0.97);
+}
+
+.audio-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(232, 197, 216, 0.45);
+}
+
 .heart-icon {
     filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.25));
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
