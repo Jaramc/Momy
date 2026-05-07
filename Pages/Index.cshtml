@@ -250,7 +250,7 @@
 
                         <p class="pt-6 text-center font-serif text-3xl drop-shadow-md">
                             Con amor infinito,<br>
-                            <span class="text-xl font-light">Tu hijo/a</span>
+                            <span class="text-xl font-light">Tu hija Ximena</span>
                         </p>
                     </div>
                 </div>
@@ -393,59 +393,92 @@
         </div>
     </section>
 
-    <!-- Sección Nuestra Historia -->
-    <section id="nuestra-historia" class="py-20 px-4 bg-gradient-to-b from-rose-50/50 to-white">
+    <!-- Sección Momentos - Reimaginada -->
+    <section id="nuestra-historia" class="py-28 px-4 bg-gradient-to-b from-white via-rose-50/30 to-white">
         <div class="max-w-4xl mx-auto">
-            <h2 class="font-serif text-5xl md:text-6xl text-center text-rose-900 mb-4 font-bold">
-                Nuestra Historia
-            </h2>
-            <p class="text-center text-gray-600 mb-16 text-lg font-light">
-                Un viaje de amor a través del tiempo
-            </p>
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-6xl md:text-7xl text-rose-900 mb-4 font-bold drop-shadow-md">
+                    Momentos que atesoro
+                </h2>
+                <p class="text-center text-gray-700 text-xl font-light max-w-2xl mx-auto">
+                    Recuerdos especiales guardados en mi corazón
+                </p>
+            </div>
 
-            <div class="relative">
-                <!-- Línea central -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-rose-300 to-pink-300" style="top: 40px;"></div>
-
-                <!-- Timeline items -->
-                @foreach (var (timeline, index) in Model.TimelineItems.Select((item, idx) => (item, idx)))
-                {
-                    var isEven = index % 2 == 0;
-                    <div class="mb-16 md:mb-24 relative">
-                        <!-- Punto dorado -->
-                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-amber-300 to-amber-400 rounded-full border-4 border-white shadow-lg" style="top: 40px;"></div>
-
-                        <!-- Contenedor alternado -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-                            @if (isEven)
-                            {
-                                <!-- Contenido izquierda en desktop -->
-                                <div class="md:text-right">
-                                    <h3 class="font-serif text-3xl text-rose-900 mb-3 font-bold">@timeline.Title</h3>
-                                    <p class="text-gray-700 leading-relaxed font-light">@timeline.Description</p>
-                                </div>
-                                <div class="md:flex justify-end">
-                                    <div class="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-rose-100 md:order-2">
-                                        <img src="@timeline.ImageUrl" alt="@timeline.Title" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                            }
-                            else
-                            {
-                                <!-- Contenido derecha en desktop -->
-                                <div class="md:flex justify-start">
-                                    <div class="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-rose-100 md:order-1">
-                                        <img src="@timeline.ImageUrl" alt="@timeline.Title" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                                <div class="md:order-2">
-                                    <h3 class="font-serif text-3xl text-rose-900 mb-3 font-bold">@timeline.Title</h3>
-                                    <p class="text-gray-700 leading-relaxed font-light">@timeline.Description</p>
-                                </div>
-                            }
+            <!-- Contenedor de momentos en grid -->
+            <div class="space-y-12">
+                <!-- Momento 1: Recolectando café -->
+                <div class="group bg-gradient-to-r from-white via-rose-50/50 to-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-300 border border-rose-100/50 hover:border-rose-200">
+                    <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                        <div class="flex-shrink-0">
+                            <div class="w-20 h-20 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/></svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-serif text-3xl text-rose-900 mb-4 font-bold">Recolectando café contigo</h3>
+                            <p class="text-gray-700 leading-relaxed font-light text-lg mb-4">
+                                Uno de mis recuerdos más bonitos era cuando me iba a recolectar café con usted. Mientras trabajábamos juntos, me contaba las historias más hermosas: la de una ratita que se encontró una moneda de oro, la del oso que trabajaba y ahorraba, y también me cantaba esa canción tan especial: "Marcos se ha marchado para no volver".
+                            </p>
+                            <div class="flex items-center gap-2 text-rose-600 font-serif text-sm italic">
+                                <span class="text-2xl">☕</span>
+                                <span>Historias bajo el sol del campo</span>
+                            </div>
                         </div>
                     </div>
-                }
+                </div>
+
+                <!-- Momento 2: Hablando de libros -->
+                <div class="group bg-gradient-to-r from-white via-amber-50/30 to-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-300 border border-rose-100/50 hover:border-rose-200">
+                    <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                        <div class="flex-shrink-0">
+                            <div class="w-20 h-20 bg-gradient-to-br from-rose-400 to-rose-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-serif text-3xl text-rose-900 mb-4 font-bold">Las historias en los libros</h3>
+                            <p class="text-gray-700 leading-relaxed font-light text-lg mb-4">
+                                También recuerdo cuando me hablaba de libros hermosos como "El rastro sobre la nieve" y "El perfume". Sus palabras traían esos mundos a la vida, y cada título que mencionaba abría puertas a nuevas aventuras. La forma en que compartía esas historias hacía que cada libro se sintiera especial.
+                            </p>
+                            <div class="flex items-center gap-2 text-rose-600 font-serif text-sm italic">
+                                <span class="text-2xl">📚</span>
+                                <span>Viajes a través de las palabras</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Momento 3: Jugando juntos -->
+                <div class="group bg-gradient-to-r from-white via-pink-50/30 to-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-300 border border-rose-100/50 hover:border-rose-200">
+                    <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                        <div class="flex-shrink-0">
+                            <div class="w-20 h-20 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-serif text-3xl text-rose-900 mb-4 font-bold">Jugando juntos</h3>
+                            <p class="text-gray-700 leading-relaxed font-light text-lg mb-4">
+                                Me acuerdo mucho de cuando jugaba conmigo, madre. De esas risas compartidas, esos momentos de pura alegría donde el tiempo se detenía. Su compañía lo era todo para mí, y cada juego era una demostración de su amor infinito hacia mi felicidad.
+                            </p>
+                            <div class="flex items-center gap-2 text-rose-600 font-serif text-sm italic">
+                                <span class="text-2xl">💫</span>
+                                <span>Risas y momentos inolvidables</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cierre de momentos -->
+                <div class="mt-16 bg-gradient-to-r from-rose-100 via-pink-100 to-rose-100 rounded-3xl p-8 md:p-12 border-2 border-rose-200 text-center">
+                    <p class="text-gray-800 text-xl leading-relaxed font-light mb-6">
+                        Muchas gracias por todo eso, por su amor, por su compañía y por esos recuerdos tan especiales que siempre voy a guardar en mi corazón.
+                    </p>
+                    <p class="text-rose-700 text-2xl font-serif font-semibold italic">
+                        "Cada momento contigo es un tesoro eterno"
+                    </p>
+                </div>
             </div>
         </div>
     </section>
